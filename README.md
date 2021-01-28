@@ -1,6 +1,2 @@
-# 工程简介
-
-
-
-# 延伸阅读
-
+### 人才管理系统
+Talent management system
