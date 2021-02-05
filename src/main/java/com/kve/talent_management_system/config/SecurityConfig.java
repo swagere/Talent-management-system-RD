@@ -1,9 +1,6 @@
 package com.kve.talent_management_system.config;
 
-import com.kve.talent_management_system.config.auth.MyAuthenticationFailureHandler;
-import com.kve.talent_management_system.config.auth.MyAuthenticationSuccessHandler;
-import com.kve.talent_management_system.config.auth.MyExpiredSessionStrategy;
-import com.kve.talent_management_system.config.auth.MyUserDetailsService;
+import com.kve.talent_management_system.config.auth.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -36,10 +33,15 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
     @Resource
     private DataSource datasource;
 
+    @Resource
+    private MyLogoutSuccessHandler myLogoutSuccessHandler;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http.rememberMe()
+        http.logout()
+                .logoutSuccessHandler(myLogoutSuccessHandler)
+             .and().rememberMe()
                 .rememberMeParameter("remember-me-new")
                 .rememberMeCookieName("remember-me-cookie")
                 .tokenValiditySeconds(2 * 24 * 60 * 60)
