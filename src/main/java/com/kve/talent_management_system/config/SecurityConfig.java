@@ -20,13 +20,6 @@ import javax.sql.DataSource;
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig  extends WebSecurityConfigurerAdapter {
-
-    @Resource
-    MyAuthenticationSuccessHandler myAuthenticationSuccessHandler;
-
-    @Resource
-    MyAuthenticationFailureHandler myAuthenticationFailureHandler;
-
     @Resource
     MyUserDetailsService myUserDetailsService;
 
@@ -47,16 +40,6 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
                 .tokenValiditySeconds(2 * 24 * 60 * 60)
                 .tokenRepository(persistentTokenRepository())
              .and().csrf().disable()
-             .formLogin()
-                .loginPage("/login.html")
-                .usernameParameter("uname")
-                .passwordParameter("pword")
-                .loginProcessingUrl("/login")
-                //.defaultSuccessUrl("/index")
-                //.failureUrl("/login.html")
-                .successHandler(myAuthenticationSuccessHandler)
-                .failureHandler(myAuthenticationFailureHandler)
-             .and()
              .authorizeRequests()
                 .antMatchers("/login.html","/login").permitAll()
                 .antMatchers("/index").authenticated()
@@ -66,8 +49,7 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
                 .invalidSessionUrl("/login.html")
                 .sessionFixation().migrateSession()
                 .maximumSessions(1)
-                .maxSessionsPreventsLogin(false)
-                .expiredSessionStrategy(new MyExpiredSessionStrategy());
+                .maxSessionsPreventsLogin(false);
 
     }
 
