@@ -11,15 +11,16 @@ import java.io.IOException;
 
 @Component
 public class MyLogoutSuccessHandler implements LogoutSuccessHandler {
-    
     @Override
     public void onLogoutSuccess(HttpServletRequest request,
                                 HttpServletResponse response,
                                 Authentication authentication)
-                                throws IOException, ServletException {
-        //这里书写你自己的退出业务逻辑：如登陆时间统计等
-        
-        // 重定向到登录页
+            throws IOException, ServletException {
+
+        //写一些业务逻辑，比如：登录时间的统计
+
+
         response.sendRedirect("/login.html");
+
     }
 }

@@ -1,29 +1,23 @@
+server:
+  port: 7788
+
 spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
-  security:
-    loginType: JSON
   datasource:
     url: jdbc:mysql://121.36.18.182:3306/talent_management_system?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
     password: rpz2020^
     driver-class-name: com.mysql.cj.jdbc.Driver
-  freemarker:
-    cache: false # 缓存配置 开发阶段应该配置为false 因为经常会改
-    suffix: .html # 模版后缀名 默认为ftl
-    charset: UTF-8 # 文件编码
-    template-loader-path: classpath:/templates/
-
-server:
-  port: 7788
-  servlet:
-    session:
-      timeout: 10s
-      cookie:
-        http-only: true
-        secure: false
+  security:
+    loginType: JSON
 
 mybatis:
   configuration:
     mapUnderscoreToCamelCase: true
+
+jwt:
+  secret: ffjaksdfjaklf
+  expiration: 3600000
+  header: JWTHeaderName
