@@ -25,7 +25,7 @@ public class JwtAuthService {
     @Resource
     JwtTokenUtil jwtTokenUtil;
 
-    // 登录认证换取JWT令牌
+    // 登录认证获取JWT令牌
     public String login(String username,String password) throws CustomException{
         try {
             UsernamePasswordAuthenticationToken upToken =
