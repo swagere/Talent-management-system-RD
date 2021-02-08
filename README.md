@@ -1,7 +1,7 @@
 ### 人才管理系统-后端
 <p>Talent management system</p>
 
-####概述：
+#### 概述：
 ##### 1. 登陆认证
 前后端分离项目，采用spring security实现jwt（即只使用token的认证模式）<br/>
 - 登陆时做登陆认证之后，生成jwt令牌 **「认证流程」**
