@@ -1,5 +1,6 @@
 package com.kve.talent_management_system.config.auth;
 
+import com.kve.talent_management_system.mapper.MyRBACServiceMapper;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;

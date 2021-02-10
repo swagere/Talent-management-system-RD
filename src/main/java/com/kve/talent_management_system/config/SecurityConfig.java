@@ -45,7 +45,6 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
         http.addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class)
                 .logout()
                 .logoutUrl("/signout")
-                //.logoutSuccessUrl("/login.html")
                 .deleteCookies("JSESSIONID")
                 .logoutSuccessHandler(myLogoutSuccessHandler)
              .and().rememberMe()
@@ -74,13 +73,6 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
-    }
-
-    @Override
-    public void configure(WebSecurity web) {
-        //将项目中静态资源路径开放出来
-        web.ignoring()
-           .antMatchers( "/css/**", "/fonts/**", "/img/**", "/js/**");
     }
 
     @Bean

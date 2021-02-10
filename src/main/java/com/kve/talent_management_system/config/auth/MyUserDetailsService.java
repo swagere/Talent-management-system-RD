@@ -1,5 +1,6 @@
 package com.kve.talent_management_system.config.auth;
 
+import com.kve.talent_management_system.mapper.MyUserDetailsServiceMapper;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -10,6 +10,8 @@ spring:
     username: root
     password: rpz2020^
     driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      max-lifetime: 60000
   security:
     loginType: JSON
 

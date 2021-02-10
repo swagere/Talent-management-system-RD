@@ -1,5 +1,6 @@
-package com.kve.talent_management_system.config.auth;
+package com.kve.talent_management_system.mapper;
 
+import com.kve.talent_management_system.config.auth.MyUserDetails;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 

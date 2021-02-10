@@ -19,7 +19,7 @@ public class JwtAuthController {
     JwtAuthService jwtAuthService;
 
     /**
-     * 登陆认证
+     * 登陆认证：用户名/手机号登陆
      * 获得jwt令牌
      * @param map
      * @return
